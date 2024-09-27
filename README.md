@@ -1,6 +1,6 @@
-# **ProductAPI - .NET 7 with Entity Framework Core and Docker**
+# **ProductAPI - .NET 8 with Entity Framework Core and Docker**
 
-This project is a RESTful API for managing products, built using **ASP.NET Core 7** and **Entity Framework Core**. It utilizes **SQL Server** as the database, and the entire environment is containerized using **Docker** and **Docker Compose**.
+This project is a RESTful API for managing products, built using **ASP.NET Core 8** and **Entity Framework Core**. It utilizes **SQL Server** as the database, and the entire environment is containerized using **Docker** and **Docker Compose**.
 
 ## **Features**
 
@@ -11,7 +11,7 @@ This project is a RESTful API for managing products, built using **ASP.NET Core 
 
 ## **Technologies Used**
 
--   **ASP.NET Core 7** - Web API framework
+-   **ASP.NET Core 8** - Web API framework
 -   **Entity Framework Core** - ORM for database interaction
 -   **SQL Server** - Database
 -   **Docker** - Containerization
@@ -24,7 +24,7 @@ This project is a RESTful API for managing products, built using **ASP.NET Core 
 To run this project, you'll need:
 
 -   **Docker** and **Docker Compose** installed on your machine
--   **.NET SDK 7** (for local development)
+-   **.NET SDK 8** (for local development)
 
 ### **Running the Application with Docker**
 

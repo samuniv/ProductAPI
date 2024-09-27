@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  productapi:
+    image: productapi:latest
+    build:
+      context: .
+      dockerfile: ProductAPI/Dockerfile
+    ports:
+      - "5000:80"  # Map local port 5000 to container port 80
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=ProductDb;User=sa;Password=Your_password123;
+    networks:
+      - app-network
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Your_password123
+    ports:
+      - "5433:1433"  # Expose SQL Server on port 5433
+    networks:
+      - app-network
+    volumes:
+      - dbdata:/var/opt/mssql
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  dbdata:

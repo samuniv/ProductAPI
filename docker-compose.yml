@@ -11,7 +11,7 @@ services:
       - db
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=db;Database=ProductDb;User=sa;Password=Your_password123;
+      - ConnectionStrings__DefaultConnection=Server=db;Database=master;User Id=sa;Password=YourStrong!Password;TrustServerCertificate=true;
     networks:
       - app-network
 
@@ -19,17 +19,12 @@ services:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=Your_password123
+      - SA_PASSWORD=YourStrong!Password
     ports:
       - "5433:1433"  # Expose SQL Server on port 5433
     networks:
       - app-network
-    volumes:
-      - dbdata:/var/opt/mssql
 
 networks:
   app-network:
     driver: bridge
-
-volumes:
-  dbdata:

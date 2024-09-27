@@ -18,6 +18,16 @@ COPY . .
 WORKDIR "/src/ProductAPI"
 RUN dotnet build "./ProductAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
+## Install EF Core tools for running migrations
+#RUN dotnet tool install --global dotnet-ef
+#
+## Update the environment PATH for EF tools
+#ENV PATH="$PATH:/root/.dotnet/tools"
+#
+## Run migrations
+#RUN dotnet ef migrations add "InitialMigration"
+#RUN dotnet ef database update
+
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
